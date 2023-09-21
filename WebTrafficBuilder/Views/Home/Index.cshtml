@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container-lg">
+    <div class="py-5 text-center">
+        <h1>WEB TRAFFIC  BUILDER</h1>
+    </div>
+    <div class="row g-5 ">
+        <div class="col-sm-6 col-lg-5 py-5 needs-validation">
+            <div>
+                <h4>
+                    Destination Host
+                    <button type="button" id="openModal" class="btn btn-outline-primary" style="margin:20px">+</button>     
+                    @*modal*@
+                    <dialog class="modal-dialog" id="myModal" tabindex="-1" role="dialog" style=" border-width : 0 ; padding:0px ">
+                        <div class="modal-dialog" role="document" style="margin:0px">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Add Host</h5>
+                                    <button type="button" class="btn btn-outline-primary close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div>
+                                        Host:
+                                        <input type="text" class="form-control" id="host" required>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary close" data-dismiss="modal">Close</button>
+                                    <button type="submit" href=":javascript" id="saveButton" class="btn btn-primary">Save changes</button>
+                                    @*buraya href koymak önemli diğer türlü submit tipi otomatik olarak butona tıklandığında get/post işlemini yapar burda çalışacak bir js kodunun olduğunu söylemeliyiz*@
+                                </div>                                   
+                            </div>
+                        </div>
+                    </dialog>
+                </h4>
+
+                <ul class="list-group list-group-flush" id="hostList"></ul>                
+            </div>
+
+            <hr>
+
+            <div style="position: relative; overflow: hidden; width: auto; height:400px;">
+                <h4 class="py-3">Options</h4>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="visitSpeed">
+                    <label class="form-check-label" for="visitSpeed">Web visit speed</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="randomVisit" checked>
+                    <label class="form-check-label" for="randomVisit">Random visit</label>
+                </div>
+            </div>
+
+            <hr>
+
+            <div>
+                <button type="button" class="w-100 btn btn-outline-primary" id="startTask">Start Task</button>
+            </div>
+
+        </div>
+
+        <div class="col-sm-6 col-lg-5  py-5">
+            <h4 class="text-center">Monitor</h4>
+            <div style="width:100%; height:95%; background-color:black" id="monitor" >
+                <ul class="list-group list-group-flush" id="ListAtMonitor" style="padding: 20px"></ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+@*normalde buraya js dosyası için <script src=""> tagı yazmamız gerekirdi ama asp de buna gerek yok kendi ekliyor*@
+@*.js dosyasında jquery kullandık ya jquery indireceksin ya da jquerynin verdiği internet adresini kaynak göstericeksin  
+    şunun gibi <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+*@
